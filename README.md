@@ -1,4 +1,4 @@
-![Logo](files/logo.png)
+![Logo](team_arc_logo.jpeg)
 
 
 
