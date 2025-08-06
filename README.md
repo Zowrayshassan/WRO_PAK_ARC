@@ -1,7 +1,7 @@
 <h1 align="center">🤖 Team ARC – Pakistan | WRO 2025</h1>
 
 <p align="center">
-  <img src="team_arc_logo.jpeg" alt="Team ARC Logo" width="200"/>
+  <img src="https://raw.githubusercontent.com/Zowrayshassan/WRO_PAK_ARC/main/t-photos/t_image.jpg" alt="Team ARC" width="300"/>
 </p>
 
 <p align="center">
@@ -52,9 +52,8 @@ Our robot features a custom 3D‑printed frame attached to a high‑torque DC mo
 ## 🔌 Wiring & Circuit Diagram
 
 <p align="center">
-  <img src="others/frc-control-system-layout-rev.svg" alt="Circuit Wiring Diagram" width="400"/>
+  <img src="https://raw.githubusercontent.com/Zowrayshassan/WRO_PAK_ARC/main/others/circuit_diagram.jpg" alt="Circuit Diagram" width="400"/>
 </p>
-
 - Power lines feed both motor driver (L298N or L293D) and logic controller
 - Motors connected via PWM from Arduino Nano
 - PixyCam integrated via I2C/SPi or UART
