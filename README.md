@@ -28,7 +28,7 @@
 
 
 <p align="center">
-  <img src="t_image.jpg" alt="Circuit Wiring Diagram" width="400"/>
+  <img src="t-photos/t_image.jpg" alt="US" width="400"/>
 </p>
 
 **Team ARC** comprises Zowrays Hassan, Bilal Asif & Mauz Ahmed from Pakistan. We're competing in the **WRO Future Engineers 2025** category with a robot built using Arduino, PixyCam, motor drivers, servo mechanisms, 3D printed gears, and TOF sensors.
@@ -52,7 +52,7 @@ Our robot features a custom 3D‑printed frame attached to a high‑torque DC mo
 ## 🔌 Wiring & Circuit Diagram
 
 <p align="center">
-  <img src="frc-control-system-layout-rev.svg" alt="Circuit Wiring Diagram" width="400"/>
+  <img src="others/frc-control-system-layout-rev.svg" alt="Circuit Wiring Diagram" width="400"/>
 </p>
 
 - Power lines feed both motor driver (L298N or L293D) and logic controller
