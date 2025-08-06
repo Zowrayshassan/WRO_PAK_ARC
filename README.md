@@ -1,7 +1,7 @@
 <h1 align="center">🤖 Team ARC – Pakistan | WRO 2025</h1>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Zowrayshassan/WRO_PAK_ARC/main/t-photos/t_image.jpg" alt="Team ARC" width="300"/>
+  <img src="team_arc_logo.jpeg" alt="Team ARC Logo" width="200"/>
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@
 
 
 <p align="center">
-  <img src="t-photos/t_image.jpg" alt="US" width="400"/>
+  <img src="https://raw.githubusercontent.com/Zowrayshassan/WRO_PAK_ARC/main/t-photos/t_image.jpg" alt="Team ARC" width="300"/>
 </p>
 
 **Team ARC** comprises Zowrays Hassan, Bilal Asif & Mauz Ahmed from Pakistan. We're competing in the **WRO Future Engineers 2025** category with a robot built using Arduino, PixyCam, motor drivers, servo mechanisms, 3D printed gears, and TOF sensors.
