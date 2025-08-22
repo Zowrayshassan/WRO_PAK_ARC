@@ -52,7 +52,7 @@ Our robot features a custom 3D‑printed frame attached to a high‑torque DC mo
 ## 🔌 Wiring & Circuit Diagram
 
 <p align="center">
-  <img src="circuit.svg" alt="Circuit Diagram" width="400"/>
+  <img src="circuit.png" alt="Circuit Diagram" width="400"/>
 </p>
 - Power lines feed both motor driver (L298N or L293D) and logic controller
 - Motors connected via PWM from Arduino Nano
