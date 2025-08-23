@@ -38,7 +38,7 @@
 ## 👥 About Us
 
 <p align="center">
-  <img src="t_photo.jpg" alt="Team ARC" width="320"/>
+  <img src="t_image(2).jpg" alt="Team ARC" width="320"/>
 </p>
 
 **Team ARC** — **Zowrays Hassan, Bilal Asif, Mauz Ahmed** — representing Pakistan in **WRO Future Engineers 2025**.  
