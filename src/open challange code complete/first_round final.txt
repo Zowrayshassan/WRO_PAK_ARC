@@ -1,0 +1,126 @@
+#include <Servo.h> 
+
+// ---------- MOTOR PINS ---------- 
+const uint8_t PIN_IN3 = 9; 
+const uint8_t PIN_ENB = 5; // ENB (PWM) 
+const uint8_t PIN_IN4 = 7; 
+
+// ---------- SERVO ---------- 
+Servo steeringServo; 
+const int SERVO_LEFT = 0; 
+const int SERVO_CENTER = 45; 
+const int SERVO_RIGHT = 90; 
+int currentSteeringAngle = SERVO_CENTER; 
+
+// ---------- ULTRASONIC SENSORS ---------- 
+#define TRIG_LEFT 48 
+#define ECHO_LEFT 49 
+#define TRIG_CENTER 51 
+#define ECHO_CENTER 50 
+#define TRIG_RIGHT 53 
+#define ECHO_RIGHT 52 
+const int numSensors = 3; 
+int distances[numSensors]; 
+
+// ---------- SPEEDS ---------- 
+const int speedF = 120; 
+const int speedT = 100; 
+
+// ====== SETUP ====== 
+void setup() { 
+  Serial.begin(115200); 
+  pinMode(PIN_IN3, OUTPUT); 
+  pinMode(PIN_IN4, OUTPUT); 
+  pinMode(PIN_ENB, OUTPUT); 
+  stopMotor(); 
+  steeringServo.attach(42); 
+  steeringServo.write(SERVO_CENTER); 
+  pinMode(TRIG_LEFT, OUTPUT); 
+  pinMode(ECHO_LEFT, INPUT); 
+  pinMode(TRIG_CENTER, OUTPUT); 
+  pinMode(ECHO_CENTER, INPUT); 
+  pinMode(TRIG_RIGHT, OUTPUT); 
+  pinMode(ECHO_RIGHT, INPUT); 
+  Serial.println("System initialized with Mega + Servo steering..."); 
+} 
+
+// ====== LOOP ====== 
+void loop() { 
+  readAllSensors(); 
+
+  // ---------------- Sensor smoothing ----------------
+  int frontDistSmoothed = (distances[0] + 2*distances[0])/3; // simple smoothing
+  int leftDistSmoothed  = (distances[1] + 2*distances[1])/3;
+  int rightDistSmoothed = (distances[2] + 2*distances[2])/3;
+
+  // ---------------- Navigation Logic ---------------- 
+  const int frontBlock = 100; // When to start turning 
+  const int minSideClear = 50; // Minimum side distance to turn 
+  const int turnDelay = 100; // Shorter, sharper turns 
+
+  if (frontDistSmoothed > 0 && frontDistSmoothed < frontBlock) { // Front blocked 
+    if (leftDistSmoothed > rightDistSmoothed && leftDistSmoothed > minSideClear) { 
+      steeringServo.write(SERVO_RIGHT); // Swapped: LEFT → RIGHT 
+      currentSteeringAngle = SERVO_RIGHT; 
+      forward(speedT); 
+      delay(turnDelay); // Shorter turn 
+    } 
+    else if (rightDistSmoothed > leftDistSmoothed && rightDistSmoothed > minSideClear) { 
+      steeringServo.write(SERVO_LEFT); // Swapped: RIGHT → LEFT 
+      currentSteeringAngle = SERVO_LEFT; 
+      forward(speedT); 
+      delay(turnDelay); // Shorter turn 
+    } 
+    else { 
+      // If both sides blocked, move slightly forward to avoid getting stuck 
+      steeringServo.write(SERVO_CENTER); 
+      currentSteeringAngle = SERVO_CENTER; 
+      forward(speedT - 20); // Slightly slower forward 
+      delay(150); 
+    } 
+  } 
+  else { // Front clear 
+    steeringServo.write(SERVO_CENTER); // Go straight only 
+    currentSteeringAngle = SERVO_CENTER; 
+    forward(speedF); 
+  } 
+
+  // Debug 
+  Serial.print("Front: "); Serial.print(frontDistSmoothed); 
+  Serial.print(", Left: "); Serial.print(leftDistSmoothed); 
+  Serial.print(", Right: "); Serial.print(rightDistSmoothed); 
+  Serial.print(", Servo Angle: "); Serial.println(currentSteeringAngle); 
+
+  delay(50); 
+} 
+
+// ====== SENSOR FUNCTIONS ====== 
+long readSonar(uint8_t trigPin, uint8_t echoPin) { 
+  digitalWrite(trigPin, LOW); 
+  delayMicroseconds(2); 
+  digitalWrite(trigPin, HIGH); 
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW); 
+  long duration = pulseIn(echoPin, HIGH, 20000UL); 
+  if (duration == 0) return 500; 
+  return duration / 58; 
+} 
+
+void readAllSensors() { 
+  distances[0] = readSonar(TRIG_CENTER, ECHO_CENTER); // Front 
+  distances[1] = readSonar(TRIG_LEFT, ECHO_LEFT); // Left 
+  distances[2] = readSonar(TRIG_RIGHT, ECHO_RIGHT); // Right 
+} 
+
+// ====== MOTOR CONTROL ====== 
+void forward(int speed) { 
+  digitalWrite(PIN_IN3, LOW); 
+  digitalWrite(PIN_IN4, HIGH); 
+  analogWrite(PIN_ENB, speed); 
+} 
+
+void stopMotor() { 
+  digitalWrite(PIN_IN3, LOW); 
+  digitalWrite(PIN_IN4, LOW); 
+  analogWrite(PIN_ENB, 0); 
+}
