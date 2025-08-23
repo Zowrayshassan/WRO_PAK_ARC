@@ -1,7 +1,7 @@
 <h1 align="center">🤖 Team ARC – Pakistan | WRO Future Engineers 2025</h1>
 
 <p align="center">
-  <img src="assets/team_arc_logo.jpeg" alt="Team ARC Logo" width="200"/>
+  <img src="team_arc_logo.jpeg" alt="Team ARC Logo" width="200"/>
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 ## 👥 About Us
 
 <p align="center">
-  <img src="assets/team_photo.jpg" alt="Team ARC" width="320"/>
+  <img src="team_photo.jpg" alt="Team ARC" width="320"/>
 </p>
 
 **Team ARC** — **Zowrays Hassan, Bilal Asif, Mauz Ahmed** — representing Pakistan in **WRO Future Engineers 2025**.  
@@ -100,7 +100,7 @@ We’ve built a robust autonomous robot focused on obstacle navigation and **blo
 ## 🖼 Circuit / CAD / Photos
 
 <p align="center">
-  <img src="assets/circuit.png" alt="Circuit Diagram" width="520"/><br/>
+  <img src="circuit.png" alt="Circuit Diagram" width="520"/><br/>
   <em>System wiring (power isolation and signal routing)</em>
 </p>
 
