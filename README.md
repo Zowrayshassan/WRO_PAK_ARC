@@ -100,7 +100,7 @@ We’ve built a robust autonomous robot focused on obstacle navigation and **blo
 ## 🖼 Circuit / CAD / Photos
 
 <p align="center">
-  <img src="circuit.png" alt="Circuit Diagram" width="520"/><br/>
+  <img src="final.jpg" alt="Circuit Diagram" width="520"/><br/>
   <em>System wiring (power isolation and signal routing)</em>
 </p>
 
