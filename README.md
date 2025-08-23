@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://www.youtube.com/@TeamARC" target="_blank">🎥 YouTube</a> •
-  <a href="https://instagram.com/teamarc" target="_blank">📸 Instagram</a> •
+  <a href="https://www.instagram.com/team_arc_pk/" target="_blank">📸 Instagram</a> •
   <a href="https://teamarc.com" target="_blank">🌐 Website</a>
 </p>
 
